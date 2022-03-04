@@ -1,7 +1,11 @@
-import Login from "./components/Login/Login";
+import HomePage from "./pages/homepage";
+import Login from "./pages/login";
 
 function App() {
-  return <Login></Login>;
+  return (
+    // <Login />
+    <HomePage />
+  );
 }
 
 export default App;
