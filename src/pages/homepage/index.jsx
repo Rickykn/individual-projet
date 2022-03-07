@@ -1,8 +1,9 @@
 import CardContent from "../../components/cardcontent";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 const HomePage = () => {
   return (
     <Box>
+      <Text>Hello</Text>
       <CardContent />;
       <CardContent />;
       <CardContent />;
