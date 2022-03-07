@@ -7,13 +7,14 @@ import {
   Input,
   Stack,
   Checkbox,
-  Link,
+  Link as ChakraLink,
   Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <Flex minHeight="100vh" align="center" justifyContent="center">
+    <Flex minHeight="90vh" align="center" justifyContent="center">
       <Box
         borderWidth="2px"
         px={4}
@@ -43,13 +44,15 @@ const Login = () => {
                   <Checkbox defaultChecked>Remember Me</Checkbox>
                 </Box>
                 <Box>
-                  <Link>Forgot your password?</Link>
+                  <ChakraLink>Forgot your password?</ChakraLink>
                 </Box>
               </Stack>
 
-              <Button width="full" mt={4} colorScheme="blue">
-                Sign In
-              </Button>
+              <Link to="/homepage">
+                <Button width="full" mt={4} colorScheme="blue">
+                  Sign In
+                </Button>
+              </Link>
             </form>
           </Box>
         </Box>
