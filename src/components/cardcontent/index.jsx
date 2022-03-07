@@ -28,7 +28,6 @@ const CardContent = () => {
           </Box>
           <Box paddingX="3">
             <Text fontSize="lg">Location</Text>
-            <Text fontSize="sm">12344 Likes</Text>
           </Box>
         </Box>
 
@@ -42,9 +41,10 @@ const CardContent = () => {
         </Box>
 
         {/* Action */}
-        <Box display="flex" justifyContent="center">
-          <Box>
+        <Box display="flex" justifyContent="space-around">
+          <Box display="inline-flex">
             <Icon boxSize={6} as={FaRegHeart} />
+            <Text paddingLeft="2">1234</Text>
           </Box>
 
           <Box paddingLeft="5">
@@ -55,7 +55,19 @@ const CardContent = () => {
             <Icon boxSize={6} as={FaRegShareSquare} />
           </Box>
         </Box>
-        {/* Comment */}
+
+        {/* caption */}
+        <Box display="inline-flex">
+          <Text fontWeight="bold" paddingRight="2">
+            Username
+          </Text>
+          <Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+            porro reprehenderit blanditiis dolore dicta omnis, itaque cumque.
+            Tenetur, aliquid ratione dolorem ex, eos, voluptates molestias
+            recusandae fugit sed inventore tempora?
+          </Text>
+        </Box>
       </Box>
     </Flex>
   );

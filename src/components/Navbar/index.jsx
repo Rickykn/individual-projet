@@ -9,7 +9,6 @@ const Navbar = () => {
       alignItems="center"
       justifyContent="space-between"
       height="50px"
-      //   background="#EFEFEF"
       marginBottom="5"
       paddingX="5"
       pos="sticky"
