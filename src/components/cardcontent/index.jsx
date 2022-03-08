@@ -1,7 +1,42 @@
 import { Box, Avatar, Text, Flex, Image, Icon } from "@chakra-ui/react";
 import { FaRegCommentDots, FaRegShareSquare, FaRegHeart } from "react-icons/fa";
+import Comment from "../Comment";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-const CardContent = () => {
+const CardContent = ({
+  username,
+  caption,
+  imageUrl,
+  location,
+  numberOfLikes,
+  id,
+}) => {
+  const [comments, setComments] = useState([]);
+  // const [commentInput, setCommentInput] = useState("");
+
+  const fetchAllComment = () => {
+    axios
+      .get("http://localhost:2000/comments", {
+        params: {
+          _expand: "user",
+          postId: id,
+        },
+      })
+      .then((res) => {
+        setComments(res.data);
+      });
+  };
+
+  const renderAllComment = () => {
+    return comments.map((val) => {
+      return <Comment username={val.user.username} content={val.content} />;
+    });
+  };
+
+  useEffect(() => {
+    fetchAllComment();
+  }, []);
   return (
     <Flex justifyContent="center">
       <Box
@@ -20,31 +55,27 @@ const CardContent = () => {
           <Box display="inline-flex">
             <Avatar src="https://bit.ly/dan-abramov" size="md" />
             <Box paddingX="3">
-              <Text fontSize="lg">Username</Text>
+              <Text fontSize="lg">{username}</Text>
               <Text fontSize="sm" color="gray.500">
                 Posted a photo!
               </Text>
             </Box>
           </Box>
           <Box paddingX="3">
-            <Text fontSize="lg">Location</Text>
+            <Text fontSize="md">{location}</Text>
           </Box>
         </Box>
 
         {/* Content */}
         <Box paddingY="3">
-          <Image
-            borderRadius="10"
-            maxWidth="full"
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-          />
+          <Image borderRadius="10" minWidth="full" src={imageUrl} />
         </Box>
 
         {/* Action */}
         <Box display="flex" justifyContent="space-around">
           <Box display="inline-flex">
             <Icon boxSize={6} as={FaRegHeart} />
-            <Text paddingLeft="2">1234</Text>
+            <Text paddingLeft="2">{numberOfLikes}</Text>
           </Box>
 
           <Box paddingLeft="5">
@@ -59,14 +90,17 @@ const CardContent = () => {
         {/* caption */}
         <Box display="inline-flex">
           <Text fontWeight="bold" paddingRight="2">
-            Username
+            {username}
           </Text>
-          <Text>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            porro reprehenderit blanditiis dolore dicta omnis, itaque cumque.
-            Tenetur, aliquid ratione dolorem ex, eos, voluptates molestias
-            recusandae fugit sed inventore tempora?
+          <Text>{caption}</Text>
+        </Box>
+
+        {/* Comment */}
+        <Box display="flex" flexDirection="column">
+          <Text marginTop="3" as="i">
+            COMMENT
           </Text>
+          {renderAllComment()}
         </Box>
       </Box>
     </Flex>

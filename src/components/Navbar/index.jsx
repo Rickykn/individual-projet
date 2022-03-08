@@ -1,4 +1,4 @@
-import { Text, Box, Avatar, Icon } from "@chakra-ui/react";
+import { Text, Box, Avatar, Icon, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 
@@ -24,14 +24,19 @@ const Navbar = () => {
         </Box>
       </Link>
 
-      <Link to="/profile">
-        <Box display="inline-flex" alignItems="center">
-          <Avatar src="https://bit.ly/dan-abramov" size="sm" />
-          <Box paddingX="3">
-            <Text fontSize="sm">Username</Text>
+      <Box display="inline-flex" alignItems="center">
+        <Button marginRight="5" colorScheme="blue" variant="outline" size="sm">
+          New Post
+        </Button>
+        <Link to="/profile">
+          <Box display="inline-flex" alignItems="center">
+            <Avatar src="https://bit.ly/dan-abramov" size="sm" />
+            <Box paddingX="3">
+              <Text fontSize="sm">Username</Text>
+            </Box>
           </Box>
-        </Box>
-      </Link>
+        </Link>
+      </Box>
     </Box>
   );
 };

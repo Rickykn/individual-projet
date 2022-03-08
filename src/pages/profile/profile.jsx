@@ -25,6 +25,7 @@ const Profile = () => {
           alignItems="center"
         >
           <Text>First Name</Text>
+
           <Text paddingLeft="20">Last Name</Text>
         </Box>
 
