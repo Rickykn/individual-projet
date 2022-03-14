@@ -15,15 +15,19 @@ const Profile = () => {
         <Box display="inline-flex" padding="5">
           <Avatar size="2xl"></Avatar>
 
-          <Box display="inline-block" paddingLeft="20">
-            <Text>Username</Text>
-            <Text paddingTop="3">Full Name</Text>
-            <Text paddingTop="3">Bio</Text>
+          <Box display="inline-block" paddingLeft="16">
+            <Text fontSize="3xl">Username</Text>
+            <Text paddingTop="3" fontWeight="bold">
+              Full Name
+            </Text>
             <Text paddingTop="3">Email</Text>
           </Box>
         </Box>
+        <Text paddingTop="3" textAlign="center">
+          Bio
+        </Text>
 
-        <Divider orientation="horizontal" variant="solid" />
+        <Divider orientation="horizontal" variant="solid" marginTop="3" />
         <Box marginTop="3" display="flex" justifyContent="space-around">
           <Text>POST</Text>
           <Text>LIKES</Text>
