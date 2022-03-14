@@ -1,4 +1,4 @@
-import { Text, Flex, Box, Avatar } from "@chakra-ui/react";
+import { Text, Flex, Box, Avatar, Divider } from "@chakra-ui/react";
 
 const Profile = () => {
   return (
@@ -7,31 +7,27 @@ const Profile = () => {
         borderWidth="2px"
         px={4}
         width="full"
-        maxWidth="lg"
+        maxWidth="50vw"
         borderRadius={10}
         textAlign={4}
         boxShadow="lg"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        paddingY="5"
       >
-        <Avatar size="xl"></Avatar>
-        <Box
-          paddingTop="5"
-          display="flex"
-          justifyContent="space-around"
-          alignItems="center"
-        >
-          <Text>First Name</Text>
+        <Box display="inline-flex" padding="5">
+          <Avatar size="2xl"></Avatar>
 
-          <Text paddingLeft="20">Last Name</Text>
+          <Box display="inline-block" paddingLeft="20">
+            <Text>Username</Text>
+            <Text paddingTop="3">Full Name</Text>
+            <Text paddingTop="3">Bio</Text>
+            <Text paddingTop="3">Email</Text>
+          </Box>
         </Box>
 
-        <Text paddingTop="5">Bio</Text>
-        <Text paddingTop="5">Username</Text>
-        <Text paddingTop="5">Email</Text>
+        <Divider orientation="horizontal" variant="solid" />
+        <Box marginTop="3" display="flex" justifyContent="space-around">
+          <Text>POST</Text>
+          <Text>LIKES</Text>
+        </Box>
       </Box>
     </Flex>
   );

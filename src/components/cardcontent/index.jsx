@@ -1,4 +1,13 @@
-import { Box, Avatar, Text, Flex, Image, Icon } from "@chakra-ui/react";
+import {
+  Box,
+  Avatar,
+  Text,
+  Flex,
+  Image,
+  Icon,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import { FaRegCommentDots, FaRegShareSquare, FaRegHeart } from "react-icons/fa";
 import Comment from "../Comment";
 import axios from "axios";
@@ -37,6 +46,7 @@ const CardContent = ({
   useEffect(() => {
     fetchAllComment();
   }, []);
+
   return (
     <Flex justifyContent="center">
       <Box
@@ -72,20 +82,21 @@ const CardContent = ({
         </Box>
 
         {/* Action */}
-        <Box display="flex" justifyContent="space-around">
-          <Box display="inline-flex">
+
+        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+          <GridItem display="inline-flex" justifyContent="center">
             <Icon boxSize={6} as={FaRegHeart} />
             <Text paddingLeft="2">{numberOfLikes}</Text>
-          </Box>
+          </GridItem>
 
-          <Box paddingLeft="5">
+          <GridItem paddingLeft="5" display="flex" justifyContent="center">
             <Icon boxSize={6} as={FaRegCommentDots} />
-          </Box>
+          </GridItem>
 
-          <Box paddingLeft="5">
+          <GridItem paddingLeft="5" display="flex" justifyContent="center">
             <Icon boxSize={6} as={FaRegShareSquare} />
-          </Box>
-        </Box>
+          </GridItem>
+        </Grid>
 
         {/* caption */}
         <Box display="inline-flex">
